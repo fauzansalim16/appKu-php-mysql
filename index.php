@@ -116,7 +116,7 @@ $postResult = $conn->query($sql_getAllPostData);
     ?>
 </div>
 <div class="insert-post">
-    <h2>Tambah postingan</h2>
+    <h2>Tambah Postingan</h2>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
         <div class="form-group">
             <label for="judul">Judul</label>
