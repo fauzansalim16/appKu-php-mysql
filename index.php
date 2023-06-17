@@ -53,6 +53,7 @@ $postResult = $conn->query($sql_getAllPostData);
 <html>
 <head>
     <title>Applikasi Ku</title>
+    <link rel="icon" href="image/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
@@ -60,8 +61,7 @@ $postResult = $conn->query($sql_getAllPostData);
     <nav id="navbar" class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">
-            <img src="image/logo.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-            AppKu
+            <img src="image/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">AppKu
             </a>
             <form action="auth/logout.php" method="post" class="logout-form">
                 <p class="greeting">Howdy, <?php echo $_SESSION["nama"]; ?></p>
