@@ -97,10 +97,9 @@ $postResult = $conn->query($sql_getAllPostData);
     if ($postResult->num_rows > 0) {
         while ($postRow = $postResult->fetch_assoc()) {
             echo "<div class='card' style='width: 18rem;'>";
-            echo "<a href='post/detailPost.php?id=" . $postRow["id"] . "' class='custom-link'>";
             echo "<img src='" . $postRow["gambar"] . "' class='card-img-top' alt='Gambar'>";
             echo "<div class='card-body'>";
-            echo "<h5 class='card-title'>" . $postRow["judul"] . "</h5>";
+            echo "<h5 class='card-title'><a href='post/detailPost.php?id=" . $postRow["id"] . "' class='custom-link'>" . $postRow["judul"] . "</a></h5>";
             echo "<p class='card-text'>" . $postRow["konten"] . "</p>";
             echo "<p class='card-text'>At: " . $postRow["tanggal_post"] . "</p>";
             $user_id = $postRow["user_id"];
@@ -117,7 +116,7 @@ $postResult = $conn->query($sql_getAllPostData);
     ?>
 </div>
 <div class="insert-post">
-    <h2>Tambah Postingan (Bug)</h2>
+    <h2>Tambah postingan</h2>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
         <div class="form-group">
             <label for="judul">Judul</label>
