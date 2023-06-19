@@ -52,16 +52,17 @@ $postResult = $conn->query($sql_getAllPostData);
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>Applikasi Ku</title>
-    <link rel="icon" href="image/logo.png" type="image/x-icon" />
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
-<body>
+<body id="body" style="background-color: aliceblue;">
     <nav id="navbar" class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">
-            <img src="image/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">AppKu
+            <img src="image/favicon.ico" alt="Logo" width="25" height="25" class="d-inline-block align-text-top">  AppKu
             </a>
             <form action="auth/logout.php" method="post" class="logout-form">
                 <p class="greeting">Howdy, <?php echo $_SESSION["nama"]; ?></p>
@@ -92,47 +93,47 @@ $postResult = $conn->query($sql_getAllPostData);
         ?>
     </div>
     <h2 class="text-center">Postingan</h2>
-<div class="card-container">
-    <?php
-    if ($postResult->num_rows > 0) {
-        while ($postRow = $postResult->fetch_assoc()) {
-            echo "<div class='card' style='width: 18rem;'>";
-            echo "<img src='" . $postRow["gambar"] . "' class='card-img-top' alt='Gambar'>";
-            echo "<div class='card-body'>";
-            echo "<h5 class='card-title'><a href='post/detailPost.php?id=" . $postRow["id"] . "' class='custom-link'>" . $postRow["judul"] . "</a></h5>";
-            echo "<p class='card-text'>" . $postRow["konten"] . "</p>";
-            echo "<p class='card-text'>At: " . $postRow["tanggal_post"] . "</p>";
-            $user_id = $postRow["user_id"];
-            $sql_getUser = "SELECT nama FROM user WHERE id = '$user_id'";
-            $userResult = $conn->query($sql_getUser);
-            if ($userResult->num_rows > 0) {
-                $userRow = $userResult->fetch_assoc();
-                echo "<p class='card-text'>By: " . $userRow["nama"] . "</p>";
+    <div class="card-container">
+        <?php
+        if ($postResult->num_rows > 0) {
+            while ($postRow = $postResult->fetch_assoc()) {
+                echo "<div class='card' style='width: 18rem;'>";
+                echo "<img src='" . $postRow["gambar"] . "' class='card-img-top' alt='Gambar'>";
+                echo "<div class='card-body'>";
+                echo "<h5 class='card-title'><a href='post/detailPost.php?id=" . $postRow["id"] . "' class='custom-link'>" . $postRow["judul"] . "</a></h5>";
+                echo "<p class='card-text'>" . $postRow["konten"] . "</p>";
+                echo "<p class='card-text'>At: " . $postRow["tanggal_post"] . "</p>";
+                $user_id = $postRow["user_id"];
+                $sql_getUser = "SELECT nama FROM user WHERE id = '$user_id'";
+                $userResult = $conn->query($sql_getUser);
+                if ($userResult->num_rows > 0) {
+                    $userRow = $userResult->fetch_assoc();
+                    echo "<p class='card-text'>By: " . $userRow["nama"] . "</p>";
+                }
+                echo "</div>";
+                echo "</div>";
             }
-            echo "</div>";
-            echo "</div>";
         }
-    }
-    ?>
-</div>
-<div class="insert-post">
-    <h2>Tambah Postingan</h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="judul">Judul</label>
-            <input type="text" class="form-control" id="judul" name="judul" required>
-        </div>
-        <div class="form-group">
-            <label for="konten">Konten</label>
-            <textarea class="form-control" id="konten" name="konten" rows="5" required></textarea>
-        </div>
-        <div class="form-group">
-            <label for="gambar">Gambar</label>
-            <input type="file" class="form-control-file" id="gambar" name="gambar">
-        </div>
-        <button type="submit" name="add_post" class="btn btn-primary mt-10">Submit</button>
-    </form>
-</div>
+        ?>
+    </div>
+    <div class="insert-post">
+        <h2>Tambah Postingan</h2>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="judul">Judul</label>
+                <input type="text" class="form-control" id="judul" name="judul" required>
+            </div>
+            <div class="form-group">
+                <label for="konten">Konten</label>
+                <textarea class="form-control" id="konten" name="konten" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="gambar">Gambar</label>
+                <input type="file" class="form-control-file" id="gambar" name="gambar">
+            </div>
+            <button type="submit" name="add_post" class="btn btn-primary mt-10 submit-button">Submit</button>
+        </form>
+    </div>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -37,13 +37,14 @@ if (isset($_GET["id"])) {
     <title>Detail Post</title>
     <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/detailPost.css">
 </head>
 
-<body>
-    <nav id="navbar" class="navbar bg-body-tertiary" style="margin-bottom: 70px">
+<body id="body" style="background-color: aliceblue;">
+    <nav id="navbar" class="navbar bg-body-tertiary" style="margin-bottom: 40px">
         <div class="container-fluid">
             <a class="navbar-brand" href="../index.php">
-            <img src="../image/logo.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            <img src="../image/favicon.ico" alt="Logo" width="25" height="25" class="d-inline-block align-text-top">
             AppKu
             </a>
             <h3 style="text-align: center; margin:auto">Detail Post</h3>
@@ -60,16 +61,22 @@ if (isset($_GET["id"])) {
                 <p class="card-text">By: <?php echo $userRow['nama']; ?></p>
                 <!-- Tambahkan tombol Edit dan Delete -->
                 <a href="editPost.php?id=<?php echo $postRow['id']; ?>" class="btn btn-primary">Edit</a>
-            <form method="POST" action="deletePost.php" style="display: inline;">
-                <input type="hidden" name="post_id" value="<?php echo $postRow['id']; ?>">
-                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this post?')">Delete</button>
-            </form>
+                <form method="POST" action="deletePost.php" style="display: inline;">
+                    <input type="hidden" name="post_id" value="<?php echo $postRow['id']; ?>">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this post?')">Delete</button>
+                </form>
             </div>
         </div>
     </div>
 
     <!-- Include Bootstrap JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById("editButton").addEventListener("click", function() {
+            var postId = <?php echo $postRow['id']; ?>;
+            window.location.href = "editPost.php?id=" + postId;
+        });
+    </script>
 </body>
 
 </html>
