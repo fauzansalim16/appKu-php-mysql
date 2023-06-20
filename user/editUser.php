@@ -46,8 +46,8 @@ if (isset($_GET["id"])) {
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>Edit Data User</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="edit.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/edit_user.css">
 </head>
 <body id="body" style="background-color: aliceblue;">
     <form class="edit-form" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
@@ -64,7 +64,7 @@ if (isset($_GET["id"])) {
         <button type="submit" class="btn btn-primary mb-3">Edit</button>
         <p><a href='index.php'>Batalkan</a></p>
     </form>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </body>
 </html>
