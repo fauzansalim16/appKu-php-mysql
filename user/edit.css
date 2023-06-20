@@ -1,0 +1,31 @@
+/* Edit.css */
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.edit-form {
+  background-color: white;
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.btn {
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+  .edit-form {
+    padding: 10px;
+  }
+}

@@ -1,6 +1,14 @@
 <?php
 require "../config/connection.php";
 
+session_start();
+
+if (!isset($_SESSION["nama"])) {
+    header("Location: ../auth/login.php");
+    exit;
+}
+
+
 if (isset($_GET["id"])) {
     $post_id = $_GET["id"];
 

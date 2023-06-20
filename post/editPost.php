@@ -1,6 +1,14 @@
 <?php
 require "../config/connection.php";
 
+session_start();
+
+if (!isset($_SESSION["nama"])) {
+    header("Location: ../auth/login.php");
+    exit;
+}
+
+
 if (isset($_GET["id"])) {
     $post_id = $_GET["id"];
 
@@ -64,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Edit Post</title>
     <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/editPost.css">
+    <link rel="stylesheet" href="editPost.css">
 </head>
 
 <body id="body" style="background-color: aliceblue;">
@@ -74,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <img src="../image/favicon.ico" alt="Logo" width="25" height="25" class="d-inline-block align-text-top">
             AppKu
             </a>
-            <h3 style="text-align: center; margin:auto">Edit Post</h3>
+            <h3 style=" margin-right: 550px;">Edit Post</h3>
         </div>
         
     </nav>
