@@ -2,7 +2,7 @@ body {
   background-color: aliceblue;
 }
 
-.login-form {
+.registrasi-form {
   margin: 0 auto;
   max-width: 360px;
   padding: 30px;
@@ -12,33 +12,33 @@ body {
   margin-top: 100px;
 }
 
-.login-form h2 {
+.registrasi-form h2 {
   margin-bottom: 30px;
 }
 
-.login-form .form-label {
+.registrasi-form .form-label {
   font-weight: bold;
 }
 
-.login-form .form-control {
+.registrasi-form .form-control {
   margin-bottom: 20px;
 }
 
-.login-form .mb-3 {
+.registrasi-form .mb-3 {
   margin-bottom: 20px;
 }
 
-.login-form .btn-primary {
+.registrasi-form .btn-primary {
   width: 100%;
 }
 
-.login-form p {
+.registrasi-form p {
   margin-top: 20px;
   text-align: center;
 }
 
 @media (max-width: 576px) {
-  .login-form {
+  .registrasi-form {
     margin-top: 50px;
   }
 }
